@@ -1,9 +1,8 @@
-package com.bobwares.climate.validation.date;
-
-import com.bobwares.climate.validation.date.validator.IsDateValidator;
+package com.bobwares.climate.validation.locales;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
+import javax.validation.constraints.NotNull;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
@@ -12,14 +11,12 @@ import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Documented
-@Constraint(validatedBy = IsDateValidator.class)
-@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
+@Constraint(validatedBy = LocalesValidator.class)
+@NotNull
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
-public @interface IsDate {
-    String value();
-
-    String message() default "{date.isdate}";
-
+public @interface Locales {
+    String message() default "{locales.invalid}";
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};

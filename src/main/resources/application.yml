@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: CLIMATE-CRUD-DEMO
+
+  h2.console.enabled: true
+  h2.console.path: /h2
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+      database: H2
+      show-sql: false
+      hibernate.ddl-auto: none
+
+server:
+  port: 8080
+  servlet:
+    context-path: /climate-crud-demo
+
+logging:
+    level:
+      ROOT: ERROR
+      com:
+          flywaydb: INFO
+          bobwares:
+            climate:
+                config: INFO
+                Application: INFO
+
+swagger:
+    api:
+        contactEmail: bobwares@gmail.com
+        contactName: Bob Adelmann
+        contactUrl: https://github.com/bobwares/spring-boot-climate
+        description: A simple application to demonstrate implement a simple REST API to perform CRUD operations on a table.
+        licence: Apache 2.0
+        licenceUrl: https://github.com/bobwares/spring-boot-climate/blob/master/LICENSE
+        termsOfService: https://github.com/bobwares/spring-boot-climate/blob/master/LICENSE
+        title: Spring Boot 2.0 REST API Demonstration
+        version: 1.0

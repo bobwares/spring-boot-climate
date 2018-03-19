@@ -1,7 +1,5 @@
 package com.bobwares.climate.validation.emaildomain;
 
-import com.bobwares.climate.validation.emaildomain.validator.EmailDomainValidator;
-
 import javax.validation.Constraint;
 import javax.validation.Payload;
 import javax.validation.constraints.Email;
@@ -15,7 +13,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy =  EmailDomainValidator.class)
 @Email
-@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER, TYPE_USE})
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 public @interface EmailDomain {
     String value();
