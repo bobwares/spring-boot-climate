@@ -1,5 +1,5 @@
 # spring-boot-climate
-A simple application to demonstrate implement a simple REST API to perform CRUD operations on a table.  
+An application to demonstrate implementation of a simple REST API that performs CRUD operations on a table.  
 
 - Technology Stack:
     - Spring Boot 2.0
@@ -16,32 +16,84 @@ A simple application to demonstrate implement a simple REST API to perform CRUD 
     - Lombok
     - Swagger
      
-# Running Application 
+## Running Application 
 
-Clone app
-build app
-run app
-test
-
-
-
-
-curl localhost:8080/climate-crud-demo/user/1
-
+ - Clone the application
+ ~~~~
+    git clone https://github.com/bobwares/spring-boot-climate.git
+ ~~~~
+ - Run this project as a Spring Boot app, e.g. import into IDE and run main method, or use Maven:
+~~~~
+    $ ./mvnw spring-boot:run
+    or
     
-# Post Data
+    $ ./mvnw package
+    $ java -jar target/climate.jar
 ~~~~
-    {
-      "birthDate": "11/22/1970",
-      "email": "chad.smith@climate.com",
-      "locale": "CA",
-      "name": "Chad Smith",
-      "phoneNumber": "555-555-5555"
-    }    
+
+ - Execute the REST APIs with curl
+~~~~
+    Endpoint: get user by id.
+        curl localhost:8080/climate-crud-demo/user/1
+        
+        Should return:
+           {"id":1,"name":"ANTHONY KIEDIS","email":"kiedis@rhcp.com","phoneNumber":"555-555-5555","locale":"CA","birthDate":"1962-11-01T06:00:00.000+0000"}
+
+    Endpoint: add user
+        
+        curl -H "Content-Type: application/json" -X POST  -d @body.json localhost:8080/climate-crud-demo/user
+        
+        Should return:
+           {"id":51,"name":"Chad Smith","email":"chad.smith@climate.com","phoneNumber":"555-555-5555","locale":"CA","birthDate":"1970-11-22T00:00:00.000+0000"}
+
+        Note: body.json is located in the root of the project.
+         
+~~~~
+ - Execute REST APIs with Swagger
+   
+   Note: I have encountered a problem running this on IE for the version 2.8 of the Spring Fox libraries.   
+~~~~
+    Endpoint: get user by id.
+        Navigate in your browser to http://localhost:8080/climate-crud-demo/swagger-ui.html and click on user-endpoint and then the GET /user/{id} link.
+        Click try it, enter value 1 for the id and click execute.
+        This should return: 
+        {
+          "id": 1,
+          "name": "ANTHONY KIEDIS",
+          "email": "kiedis@rhcp.com",
+          "phoneNumber": "555-555-5555",
+          "locale": "CA",
+          "birthDate": "1962-11-01T06:00:00.000+0000"
+        }
+        
+    Endpoint: add user
+        Navigate in your browser to http://localhost:8080/climate-crud-demo/swagger-ui.html and click on user-endpoint and then the POST /user link.
+        Click try it, add the JSON to post, and click execute. 
+        
+        You can use the example below.
+                
+        {
+          "birthDate": "11/22/1970",
+          "email": "chad.smith@climate.com",
+          "locale": "CA",
+          "name": "Chad Smith",
+          "phoneNumber": "555-555-5555"
+        } 
+           
+        This should return: 
+        {
+          "id": 51
+          "birthDate": "11/22/1970",
+          "email": "chad.smith@climate.com",
+          "locale": "CA",
+          "name": "Chad Smith",
+          "phoneNumber": "555-555-5555"
+        }
 ~~~~
 
 
-#References
+##References
+
 - Bean Validation 2.0
     - http://beanvalidation.org/2.0/
     - [Hibernate Validator 6.0.8](https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#preface)
