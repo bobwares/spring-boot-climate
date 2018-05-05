@@ -1,4 +1,4 @@
-package com.bobwares.climate.service.service;
+package com.bobwares.climate.service;
 
 import com.bobwares.climate.domain.UserPost;
 import com.bobwares.climate.entity.User;

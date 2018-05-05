@@ -1,8 +1,9 @@
-package com.bobwares.climate.service.service;
+package com.bobwares.climate.service;
 
 import com.bobwares.climate.domain.UserPost;
 import com.bobwares.climate.entity.User;
 import com.bobwares.climate.repository.UserRepository;
+import com.bobwares.climate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

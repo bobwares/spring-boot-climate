@@ -2,7 +2,7 @@ package com.bobwares.climate.endpoint;
 
 import com.bobwares.climate.domain.UserPost;
 import com.bobwares.climate.entity.User;
-import com.bobwares.climate.service.service.UserService;
+import com.bobwares.climate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.http.HttpStatus;

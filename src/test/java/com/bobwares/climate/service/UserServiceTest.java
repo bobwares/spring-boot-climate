@@ -3,7 +3,6 @@ package com.bobwares.climate.service;
 import com.bobwares.climate.domain.LocaleEnum;
 import com.bobwares.climate.entity.User;
 import com.bobwares.climate.repository.UserRepository;
-import com.bobwares.climate.service.service.UserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
